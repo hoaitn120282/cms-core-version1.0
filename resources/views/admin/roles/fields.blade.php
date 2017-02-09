@@ -56,10 +56,12 @@ $permissionAsigned = isset($roles->permission) ? $roles->permission : null;
     $(document).ready(function () {
         //Process permission list
         $("#administrator-role").change(function () {
+            console.log($(this));
+
             if (this.checked == true) {
-                $('#checkBoxChild-administrator, #checkBoxParent-administrator').attr('checked', true);
+                $('#checkBoxChild-administrator, #checkBoxParent-administrator').prop('checked', true);
             } else {
-                $('#checkBoxChild-administrator, #checkBoxParent-administrator').removeAttr('checked');
+                $('#checkBoxChild-administrator, #checkBoxParent-administrator').prop('checked', false);
             }
         });
         //Default loading role
