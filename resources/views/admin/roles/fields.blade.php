@@ -56,8 +56,6 @@ $permissionAsigned = isset($roles->permission) ? $roles->permission : null;
     $(document).ready(function () {
         //Process permission list
         $("#administrator-role").change(function () {
-            console.log($(this));
-
             if (this.checked == true) {
                 $('#checkBoxChild-administrator, #checkBoxParent-administrator').prop('checked', true);
             } else {
