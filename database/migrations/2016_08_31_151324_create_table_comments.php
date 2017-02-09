@@ -17,7 +17,7 @@ class CreateTableComments extends Migration
             $table->bigIncrements('id')->unsigned();
             $table->bigInteger('post_id')->default(0)->unsigned();
             $table->string('author');
-            $table->string('email')->unique();
+            $table->string('email');
             $table->string('url');
             $table->longText('content');
             $table->boolean('approved')->default(false);
