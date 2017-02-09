@@ -31,7 +31,8 @@
         ],
         "psr-4": {
             "App\\": "app/",
-            "Qsoftvn\\ShoppingCart\\": "packages/qsoftvn/shopping-cart/src"
+            "Qsoftvn\\ShoppingCart\\": "packages/qsoftvn/shopping-cart/src",
+            "Qsoftvn\\SiteBuilder\\":"packages/qsoftvn/site-builder/src/"
         }
     },
     "autoload-dev": {
