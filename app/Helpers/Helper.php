@@ -88,7 +88,7 @@ class Helper
     {
         $this->permissionAsigned = ($permissionAsigned != null)?\GuzzleHttp\json_decode($permissionAsigned):[];
         $permissionsList = config("permission");
-        $permissionUI = "<ul class='list-group'><li class='list-group-item'><input type='checkbox' id='".$role."-role' name='fullaccess' value='".$role."'> Allow All Access</li>";
+        $permissionUI = "<ul class='list-group'><li class='list-group-item'><label><input type='checkbox' id='".$role."-role' name='fullaccess' value='".$role."'> Allow All Access</label></li>";
         $permissionUI .= $this->passingToList($permissionsList, $role);
         $permissionUI .= '</ul>';
 
