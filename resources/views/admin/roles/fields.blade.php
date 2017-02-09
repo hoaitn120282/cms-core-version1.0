@@ -12,7 +12,7 @@
 <!-- Description Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('type', 'Type:') !!}
-    {!! Form::select('type', [''=>'Please select type','admin'=>'Administrators','users'=>'Users'], ($roles->type), ['class' => 'form-control','id'=>'type']) !!}
+    {!! Form::select('type', [''=>'Please select type','admin'=>'Administrators','users'=>'Users'], (isset($roles)?$roles->type:0), ['class' => 'form-control','id'=>'type']) !!}
 </div>
 
 <!-- Status Field -->
