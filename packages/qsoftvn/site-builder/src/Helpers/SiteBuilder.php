@@ -1,11 +1,11 @@
 <?php
 
-namespace SiteBuilder;
+namespace Qsoftvn\SiteBuilder\Helpers;
 
 use Illuminate\Support\Collection;
 use Illuminate\Session\SessionManager;
 
-class SBuilder
+class SiteBuilder
 {
     const DEFAULT_INSTANCE = 'default';
     const  DEFAULT_STEPS = array(
@@ -50,6 +50,19 @@ class SBuilder
             ' on line ' . $trace[0]['line'],
             E_USER_NOTICE);
         return null;
+    }
+
+    /**
+     * Set the session store implementation.
+     *
+     * @param  \Illuminate\Contracts\Session\Session $session
+     *
+     * @return $this
+     */
+    public function setSessionStore(Session $session)
+    {
+        $this->session = $session;
+        return $this;
     }
 
     /**

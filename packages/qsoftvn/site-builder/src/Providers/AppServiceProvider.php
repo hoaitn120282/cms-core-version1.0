@@ -1,8 +1,7 @@
 <?php
 namespace Qsoftvn\SiteBuilder\Providers;
 
-use Illuminate\Foundation\AliasLoader;
-use Qsoftvn\SiteBuilder\Helpers\SBuilder;
+use Qsoftvn\SiteBuilder\Helpers\SiteBuilder;
 
 /**
  * ServiceProvider
@@ -16,12 +15,6 @@ use Qsoftvn\SiteBuilder\Helpers\SBuilder;
  */
 class AppServiceProvider extends \Illuminate\Support\ServiceProvider
 {
-    /**
-     * Will make sure that the required modules have been fully loaded
-     * @return void
-     */
-    public $admin;
-
     public function boot()
     {
         $pkg_path = dirname(__DIR__);
@@ -30,30 +23,36 @@ class AppServiceProvider extends \Illuminate\Support\ServiceProvider
         $this->publishes([
             $views_path => base_path('resources/views/vendor/SiteBuilder')
         ]);
-        $this->loadMigrationsFrom(__DIR__ . '/database/migrations');
+
+        $this->publishes([
+            __DIR__ . '/../database/migrations/' => database_path('migrations')
+        ], 'migrations');
+
+        // Use for version >= 5.3.*
+        // $this->loadMigrationsFrom(__DIR__ . '/database/migrations');
+
+        $this->publishes([
+            __DIR__ . '/../config/qsoftvn/' => config_path('qsoftvn')
+        ], 'config');
 
         parent::boot();
     }
 
     public function register()
     {
-        $this->app->booting(function () {
-            $loader = AliasLoader::getInstance();
-            $loader->alias('Admin', 'App\Facades\Admin');
-            $file = app_path('Helpers/Admin.php');
-            if (file_exists($file)) {
-                include $file;
-            }
-        });
-
+        $this->registerSiteBuilder();
+        $this->app->alias('SiteBuilder', 'Qsoftvn\SiteBuilder\Facades\SiteBuilder');
+        $this->mergeConfigFrom(
+            __DIR__ . '/../config/qsoftvn/sitebuilder.php', 'qsoftvn.sitebuilder'
+        );
     }
 
     protected function registerSiteBuilder()
     {
-        $this->app->singleton('SiteBuilder', function($app) {
-            $siteBuilder = new SBuilder($app['session.store']->getToken());
+        $this->app->singleton('SiteBuilder', function ($app) {
+            $siteBuilder = new SiteBuilder($app['session.store']->getToken());
 
-            return $siteBuilder
+            return $siteBuilder->setSessionStore($app['session.store']);
         });
     }
 

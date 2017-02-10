@@ -8,6 +8,20 @@ use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvi
 class RouteServiceProvider extends ServiceProvider
 {
     /**
+     * This admin is applied to your controller routes.
+     *
+     * @var string
+     */
+    protected $admin_prefix;
+
+    /**
+     * This middleware is applied to your controller routes.
+     *
+     * @var array
+     */
+    protected $middleware;
+
+    /**
      * This namespace is applied to your controller routes.
      *
      * In addition, it is set as the URL generator's root namespace.
@@ -19,11 +33,14 @@ class RouteServiceProvider extends ServiceProvider
     /**
      * Define your route model bindings, pattern filters, etc.
      *
-     * @param  \Illuminate\Routing\Router  $router
+     * @param  \Illuminate\Routing\Router $router
      * @return void
      */
     public function boot(Router $router)
     {
+        $this->admin_prefix = config("qsoftvn.sitebuilder.admin_prefix");
+        $this->middleware = config("qsoftvn.sitebuiler.middleware");
+        $this->middleware = is_array($this->middleware) ? $this->middleware : (array)$this->middleware;
         //
         parent::boot($router);
     }
@@ -31,15 +48,12 @@ class RouteServiceProvider extends ServiceProvider
     /**
      * Define the routes for the application.
      *
-     * @param  \Illuminate\Routing\Router  $router
+     * @param  \Illuminate\Routing\Router $router
      * @return void
      */
     public function map(Router $router)
     {
         $this->mapWebRoutes($router);
-
-
-        //
     }
 
     /**
@@ -47,15 +61,29 @@ class RouteServiceProvider extends ServiceProvider
      *
      * These routes all receive session state, CSRF protection, etc.
      *
-     * @param  \Illuminate\Routing\Router  $router
+     * @param  \Illuminate\Routing\Router $router
      * @return void
      */
     protected function mapWebRoutes(Router $router)
     {
+        $pkg_path = dirname(__DIR__);
         $router->group([
-            'namespace' => $this->namespace, 'middleware' => 'web',
-        ], function ($router) {
-            require app_path('Http/routes.php');
+            'prefix' => $this->admin_prefix,
+            'namespace' => $this->namespace,
+            'middleware' => array_merge(['web'], $this->middleware),
+        ], function ($router) use ($pkg_path) {
+            require self::pkg_path('routes/web.php');
         });
+    }
+
+    /**
+     *
+     */
+    protected function pkg_path($path = null)
+    {
+        $pkg_path = dirname(__DIR__);
+        $pkg_path = empty($path) ?: $pkg_path . '/' . $path;
+
+        return $pkg_path;
     }
 }

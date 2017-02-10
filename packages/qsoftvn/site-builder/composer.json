@@ -1,0 +1,38 @@
+{
+    "name": "qsoftvn/site-builder",
+    "description": "Package site builder",
+    "keywords": [
+        "SiteBuilder",
+        "Site Builder"
+    ],
+    "homepage": "https://github.com/hoangdv1112",
+    "license": "MIT",
+    "authors": [{
+        "name": "Hoang Doan",
+        "email": "hoangdv1112@gmail.com",
+        "homepage": "https://github.com/hoangdv1112",
+        "role": "Developer"
+    }],
+    "require": {
+        "illuminate/support": "~5.2",
+        "php": ">=5.5.9"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "4.*",
+        "scrutinizer/ocular": "~1.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Qsoftvn\\SiteBuilder\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Qsoftvn\\SiteBuilder\\Test\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "phpunit"
+    },
+    "minimum-stability": "dev"
+}

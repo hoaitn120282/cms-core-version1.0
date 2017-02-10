@@ -171,6 +171,8 @@ return [
         Barryvdh\Debugbar\ServiceProvider::class,
         Infinety\FileManager\FileManagerServiceProvider::class,
         Qsoftvn\ShoppingCart\ShoppingServiceProvider::class,
+        Qsoftvn\SiteBuilder\Providers\AppServiceProvider::class,
+        Qsoftvn\SiteBuilder\Providers\RouteServiceProvider::class,
     ],
 
     /*
@@ -225,6 +227,7 @@ return [
         'Html'      => Collective\Html\HtmlFacade::class,
         'Flash'     => Laracasts\Flash\Flash::class,
         'Debugbar'  => Barryvdh\Debugbar\Facade::class,
+        'SiteBuilder'=> Qsoftvn\SiteBuilder\Facades\SiteBuilder::class,
     ],
 
 ];
