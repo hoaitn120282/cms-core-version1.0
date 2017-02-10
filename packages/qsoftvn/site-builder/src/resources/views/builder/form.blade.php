@@ -11,7 +11,8 @@ switch ($continue) {
         break;
 }
 $form = array(
-        'action' => Admin::route('siteBuilder.build.store')
+        'action' => Admin::route('siteBuilder.build.store'),
+        'method' => 'POST'
 );
 ?>
 @extends('layouts.admin')
@@ -27,9 +28,11 @@ $form = array(
             </ol>
         </div><!-- /.list-step-install -->
         <div class="col-md-9">
-            <form action="" name="build-site"
+            <form action="{{ $form['action'] }}"
+                  method="{{ $form['method'] }}"
+                  name="build-site"
                   class="form-builder-site">
-
+                {{ csrf_field() }}
                 @include('SiteBuilder::builder.components.'.$component, compact('form'))
             </form>
         </div><!-- /.main-step-install -->

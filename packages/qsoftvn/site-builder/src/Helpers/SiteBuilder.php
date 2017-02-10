@@ -145,6 +145,88 @@ class SiteBuilder
     }
 
     /**
+     * Set Step's data of Database
+     *
+     * @param array $data
+     * @return mixed
+     */
+    public function setDatabaseData($data = null)
+    {
+        try {
+            // Valid
+            if (empty($data) || !is_array($data)) {
+                throw new \Exception('Please supply a valid data.');
+            }
+            if (empty($data['name'])) {
+                throw new \Exception('Database name is required.');
+            }
+            if (empty($data['username'])) {
+                throw new \Exception('Database username is required.');
+            }
+            if (empty($data['host'])) {
+                throw new \Exception('Database host is required.');
+            }
+
+            $step = 'database';
+            $steps = $this->getSteps();
+            $steps[$step] = $data;
+            $this->session->put($this->instance, $this->setAsCollection($steps));
+
+            return array(
+                'success' => true,
+                'message' => 'Done'
+            );
+        } catch (\Exception $exception) {
+            return array(
+                'success' => false,
+                'message' => 'Done',
+                'errors' => $exception->getMessage()
+            );
+        }
+    }
+
+    /**
+     * Set's data of ftp
+     *
+     * @param array $data
+     * @return mixed
+     */
+    public function setFtpData($data = null)
+    {
+        try {
+            // Valid
+            if (empty($data) || !is_array($data)) {
+                throw new \Exception('Please supply a valid data.');
+            }
+            if (empty($data['host'])) {
+                throw new \Exception('Ftp host is required.');
+            }
+            if (empty($data['username'])) {
+                throw new \Exception('Ftp username is required.');
+            }
+            if (empty($data['password'])) {
+                throw new \Exception('Ftp password is required.');
+            }
+
+            $step = 'ftp';
+            $steps = $this->getSteps();
+            $steps[$step] = $data;
+            $this->session->put($this->instance, $this->setAsCollection($steps));
+
+            return array(
+                'success' => true,
+                'message' => 'Done'
+            );
+        } catch (\Exception $exception) {
+            return array(
+                'success' => false,
+                'message' => 'Done',
+                'errors' => $exception->getMessage()
+            );
+        }
+    }
+
+    /**
      * Destroy the current site builder instance.
      *
      * @return void

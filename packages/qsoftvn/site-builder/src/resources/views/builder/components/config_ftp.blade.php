@@ -4,46 +4,47 @@
     </div><!-- /.panel-heading -->
     <div class="panel-body">
         <div class="form-group">
-            <label for="fpt[host]">
+            <label for="ftp[host]">
                 Host
                 <span class="text-danger">*</span>
             </label>
-            <input type="text" id="fpt[host]"
-                   class="form-control fpt-host"
-                   name="fpt[host]"
-                   value="{{$node->fpt->host or 'http://localhost'}}">
-        </div><!-- /.fpt-host -->
+            <input type="text" id="ftp[host]"
+                   class="form-control ftp-host"
+                   name="ftp[host]"
+                   value="{{$node->ftp->host or 'http://localhost'}}">
+        </div><!-- /.ftp-host -->
 
         <div class="form-group">
-            <label for="fpt[port]">
-                Host
+            <label for="ftp[port]">
+                Port
             </label>
-            <input type="text" id="fpt[port]"
-                   class="form-control fpt-port"
-                   name="fpt[port]"
-                   value="{{$node->fpt->port or 21}}">
-        </div><!-- /.fpt-host -->
+            <input type="text" id="ftp[port]"
+                   class="form-control ftp-port"
+                   name="ftp[port]"
+                   value="{{$node->ftp->port or 21}}">
+        </div><!-- /.ftp-host -->
 
         <div class="form-group">
-            <label for="fpt[username]">
+            <label for="ftp[username]">
                 Username
                 <span class="text-danger">*</span>
             </label>
-            <input type="text" id="fpt[username]"
-                   class="form-control fpt-username"
-                   name="fpt[username]"
-                   value="{{$node->fpt->username or null}}">
-        </div><!-- /.fpt-username -->
+            <input type="text" id="ftp[username]"
+                   class="form-control ftp-username"
+                   name="ftp[username]"
+                   value="{{$node->ftp->username or null}}">
+        </div><!-- /.ftp-username -->
 
         <div class="form-group">
-            <label for="fpt[password]">
+            <label for="ftp[password]">
                 Password
+                <span class="text-danger">*</span>
             </label>
-            <input type="password" id="fpt[password]"
-                   class="form-control fpt-password"
-                   name="fpt[password]"
-                   value="{{$node->fpt->password or null}}">
-        </div><!-- /.fpt-password -->
+            <input type="password" id="ftp[password]"
+                   class="form-control ftp-password"
+                   name="ftp[password]"
+                   value="{{$node->ftp->password or null}}">
+        </div><!-- /.ftp-password -->
     </div><!-- /.panel-body -->
     <div class="panel-footer clearfix">
         <div class="form-actions pull-right">

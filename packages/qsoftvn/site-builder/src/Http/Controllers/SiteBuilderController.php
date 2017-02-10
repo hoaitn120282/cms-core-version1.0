@@ -6,8 +6,7 @@ use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use DB;
-use App\Facades\Admin;
-use App\Facades\Theme;
+use SiteBuilder;
 
 class SiteBuilderController extends Controller
 {
@@ -35,6 +34,21 @@ class SiteBuilderController extends Controller
      */
     public function store(Request $request)
     {
+        $continue = $request->get('continue', 1);
+        $database = array(
+            'name' => 'sitebuilder',
+            'username' => 'hoangdv',
+            'host' => 'http://localhost'
+        );
+        $ftp = array(
+            'host' => 'http://localhost',
+            'username' => 'hoangdv',
+            'password' => 'Hoangdv'
+        );
+        SiteBuilder::setDatabaseData($database);
+        SiteBuilder::setFtpData($ftp);
+        $steps = SiteBuilder::getSteps();
+        dd($steps);
         return;
     }
 }

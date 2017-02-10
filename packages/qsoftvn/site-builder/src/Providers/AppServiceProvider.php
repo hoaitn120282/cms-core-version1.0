@@ -42,9 +42,9 @@ class AppServiceProvider extends \Illuminate\Support\ServiceProvider
     {
         $this->registerSiteBuilder();
         $this->app->alias('SiteBuilder', 'Qsoftvn\SiteBuilder\Facades\SiteBuilder');
-        $this->mergeConfigFrom(
+        /*$this->mergeConfigFrom(
             __DIR__ . '/../config/qsoftvn/sitebuilder.php', 'qsoftvn.sitebuilder'
-        );
+        );*/
     }
 
     protected function registerSiteBuilder()
