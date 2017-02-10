@@ -39,7 +39,7 @@ class RouteServiceProvider extends ServiceProvider
     public function boot(Router $router)
     {
         $this->admin_prefix = config("qsoftvn.sitebuilder.admin_prefix");
-        $this->middleware = config("qsoftvn.sitebuiler.middleware");
+        $this->middleware = config("qsoftvn.sitebuilder.middleware");
         $this->middleware = is_array($this->middleware) ? $this->middleware : (array)$this->middleware;
         //
         parent::boot($router);
