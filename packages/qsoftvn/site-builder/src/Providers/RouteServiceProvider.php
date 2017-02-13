@@ -77,7 +77,10 @@ class RouteServiceProvider extends ServiceProvider
     }
 
     /**
+     * Get path package
      *
+     * @param string $path
+     * @return string $pkg_path
      */
     protected function pkg_path($path = null)
     {
