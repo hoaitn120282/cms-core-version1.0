@@ -2,6 +2,7 @@
 
 namespace Qsoftvn\SiteBuilder\Http\Controllers;
 
+use App\Modules\ContentManager\Models\Themes;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -24,9 +25,10 @@ class SiteBuilderController extends Controller
     public function build(Request $request)
     {
         $node = new Collection();
+        $themes = Themes::all();
         $continue = $request->get('continue');
 
-        return view('SiteBuilder::builder.form', compact('node', 'continue'));
+        return view('SiteBuilder::builder.form', compact('node', 'continue', 'themes'));
     }
 
     /**
