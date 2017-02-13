@@ -1,10 +1,9 @@
 <?php
 $component = 'cfg_theme';
 switch ($continue) {
-    case 2:
-        $component = 'cfg_theme';
+    case 1:
         break;
-    case 3:
+    case 2:
         $component = 'cfg_layout';
         break;
     case 3:
