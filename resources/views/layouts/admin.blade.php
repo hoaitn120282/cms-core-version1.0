@@ -47,7 +47,7 @@
 
             <!-- sidebar menu -->
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
-              <div class="menu_section">
+              <ul class="menu_section">
                 <h3>General</h3>
                 <ul class="nav side-menu">
                   <li><a href="{{ Admin::route('contentManager.index') }}"><i class="fa fa-home"></i> Dashboard </a></li>
@@ -82,9 +82,8 @@
                   @include('layouts.generated-menu')
                   <li><a href="{{ Admin::route('contentManager.user.index') }}"><i class="fa fa-users"></i> Users Manager </a></li>
                   <li><a href="{{ Admin::route('contentManager.setting') }}"><i class="fa fa-gear"></i> Setting</a></li>
-              </div>
-             
-
+              </ul>
+             </ul>
             </div>
             <!-- /sidebar menu -->
 
