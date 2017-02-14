@@ -15,7 +15,7 @@ class Theme
     protected $copyPath;
     protected $activeName;
     protected $activeID;
-    private $errors            = [];
+    private $errors = [];
     private $requireConfigFile = [
         'name',
         'version',
@@ -30,21 +30,44 @@ class Theme
 
     public function __construct()
     {
-        $this->config        = config("theme");
+        $this->config = config("theme");
         $this->defaulTmpPath = [
-            "theme"      => app_path('Themes/tmp/theme'),
-            "widget"     => app_path('Themes/tmp/widget'),
+            "theme" => app_path('Themes/tmp/theme'),
+            "widget" => app_path('Themes/tmp/widget'),
             "widgetView" => app_path('Themes/tmp/widgetView'),
-            "asset"      => app_path('Themes/tmp/asset'),
+            "asset" => app_path('Themes/tmp/asset'),
         ];
         if ($this->config['driver'] == "file") {
             $this->activeName = $this->config['active'];
-            $this->activeID   = 1;
+            $this->activeID = isset($this->config['active_id']) ? $this->config['active_id'] : 1;
         } else {
-            $active           = Themes::where('status', true)->first();
+            $active = Themes::where('status', true)->first();
             $this->activeName = $active->name;
-            $this->activeID   = $active->id;
+            $this->activeID = $active->id;
         }
+    }
+
+    /**
+     * Set theme active
+     *
+     * @param App\Modules\ContentManager\Models\Themes $model
+     * @return $this
+     */
+    public function setActive($model)
+    {
+        if ($model instanceof Themes) {
+            $model->status = 1;
+            $model->save();
+            $this->activeID = $model->id;
+            $this->activeName = $model->name;
+            $this->generateThemeConfig([
+                'name' => $model->name,
+                'id' => $model->id,
+                'driver' => 'file'
+            ]);
+        }
+
+        return $this;
     }
 
     public function getID()
@@ -70,10 +93,10 @@ class Theme
     public function setCopyPath($name)
     {
         return $this->copyPath = [
-            "asset"      => public_path("themes/" . $name),
-            "theme"      => resource_path('views/themes/' . $name),
+            "asset" => public_path("themes/" . $name),
+            "theme" => resource_path('views/themes/' . $name),
             "widgetView" => resource_path('views/widgets/' . $name),
-            "widget"     => app_path('Widgets/' . $name),
+            "widget" => app_path('Widgets/' . $name),
         ];
     }
 
@@ -142,7 +165,7 @@ class Theme
     public function uninstall($name)
     {
         $copyPath = $this->setCopyPath($name);
-        $file     = app_path('Themes/upload') . "/" . $name . ".zip";
+        $file = app_path('Themes/upload') . "/" . $name . ".zip";
         foreach ($copyPath as $key => $value) {
             if (File::isDirectory($value)) {
                 File::deleteDirectory($value);
@@ -181,9 +204,9 @@ class Theme
 
     public function option($key, $name, $defaulValue = "")
     {
-        $tmp  = ThemeMeta::where('theme_id', $this->activeID)->where('meta_group', 'options')->where('meta_key', $key)->first();
+        $tmp = ThemeMeta::where('theme_id', $this->activeID)->where('meta_group', 'options')->where('meta_key', $key)->first();
         $meta = unserialize($tmp->meta_value);
-        $res  = "";
+        $res = "";
         foreach ($meta as $value) {
             if ($value['name'] == $name) {
                 $res = $value['value'];
@@ -222,33 +245,33 @@ class Theme
         if ($this->checkFileExist($pathFile)) {
             $file = include $pathFile;
             $this->deleteFromDB($name);
-            $theme                = new Themes();
-            $theme->name          = $file['name'];
-            $theme->version       = $file['version'];
-            $theme->author        = $file['author'];
-            $theme->author_url    = $file['author_url'];
-            $theme->description   = $file['description'];
+            $theme = new Themes();
+            $theme->name = $file['name'];
+            $theme->version = $file['version'];
+            $theme->author = $file['author'];
+            $theme->author_url = $file['author_url'];
+            $theme->description = $file['description'];
             $theme->image_preview = $file['image_preview'];
             $theme->save();
             foreach ($file['widget_position'] as $value) {
-                $group           = new WidgetGroups();
+                $group = new WidgetGroups();
                 $group->theme_id = $theme->id;
-                $group->name     = $value;
+                $group->name = $value;
                 $group->save();
             }
             foreach ($file['menu_position'] as $value) {
-                $meta             = new ThemeMeta();
-                $meta->theme_id   = $theme->id;
+                $meta = new ThemeMeta();
+                $meta->theme_id = $theme->id;
                 $meta->meta_group = "menu_position";
-                $meta->meta_key   = $value;
+                $meta->meta_key = $value;
                 $meta->meta_value = "";
                 $meta->save();
             }
             foreach ($file['options'] as $key => $value) {
-                $meta             = new ThemeMeta();
-                $meta->theme_id   = $theme->id;
+                $meta = new ThemeMeta();
+                $meta->theme_id = $theme->id;
                 $meta->meta_group = "options";
-                $meta->meta_key   = $key;
+                $meta->meta_key = $key;
                 $meta->meta_value = serialize($value);
                 $meta->save();
             }
@@ -265,5 +288,30 @@ class Theme
     private function setDataTheme()
     {
 
+    }
+
+    /**
+     * Generate theme config
+     *
+     * @param array $config
+     * @return string $str
+     */
+    protected function generateThemeConfig($config)
+    {
+        $themeFile = config_path("theme.php");
+        $str = '<?php' . "\n";
+        $str .= '$config = [];' . "\n\n";
+        $str .= '$config[\'active\'] =\'' . $config['name'] . '\';' . "\n";
+        $str .= '$config[\'active_id\'] =\'' . $config['id'] . '\';' . "\n";
+        $str .= '$config[\'driver\'] =\'' . $config['driver'] . '\';' . "\n";
+        $str .= "\n" . 'return $config;';
+        try {
+            $fh = fopen($themeFile, 'w');
+            fwrite($fh, $str);
+            fclose($fh);
+        } catch (\Exception $exc) {
+            echo $exc->getTraceAsString();
+        }
+        return $str;
     }
 }
