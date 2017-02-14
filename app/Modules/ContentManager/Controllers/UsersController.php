@@ -2,6 +2,7 @@
 
 namespace App\Modules\ContentManager\Controllers;
 
+use App\Entities\Roles;
 use Illuminate\Http\Request;
 use App\User;
 use Admin;
@@ -27,7 +28,8 @@ class UsersController extends Controller
      */
     public function create()
     {
-        return view("ContentManager::user.create",['model' => ""]);
+        $roles = Roles::all(['id','name']);
+        return view("ContentManager::user.create",['model' => "", 'roles' => $roles]);
     }
 
     /**
