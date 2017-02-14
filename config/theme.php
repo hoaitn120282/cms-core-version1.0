@@ -1,6 +1,7 @@
 <?php
+$config = [];
 
-return [
-	'active'=>'smallpine',
-	'driver'=>'file', //---file or database
-];
+$config['active'] ='smallpine';
+$config['driver'] ='file';
+
+return $config;

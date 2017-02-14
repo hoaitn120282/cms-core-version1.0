@@ -16,7 +16,8 @@
         "jlapp/swaggervel": "dev-master",
         "doctrine/dbal": "~2.3",
         "barryvdh/laravel-debugbar": "^2.3",
-        "infinety-es/filemanager": "2.1.1.7"
+        "infinety-es/filemanager": "2.1.1.7",
+        "michele-angioni/multi-language": "~0.3"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
