@@ -31,7 +31,7 @@
                 </div>
 
                 <div class="clearfix"></div>
-                
+
                 <!-- menu profile quick info -->
                 <div class="profile">
                     <div class="profile_pic">

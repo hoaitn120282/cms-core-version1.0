@@ -7,13 +7,13 @@ switch ($continue) {
         $component = 'cfg_layout';
         break;
     case 3:
-        $component = 'cfg_database';
+        $component = 'cfg_site';
         break;
     case 4:
-        $component = 'cfg_ftp';
+        $component = 'cfg_database';
         break;
     case 5:
-        $component = 'cfg_site';
+        $component = 'cfg_ftp';
         break;
     case 6:
         break;
