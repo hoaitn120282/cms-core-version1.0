@@ -26,3 +26,7 @@ Route::get('admin/roles/{roles}', 'RolesAPIController@show');
 Route::put('admin/roles/{roles}', 'RolesAPIController@update');
 Route::patch('admin/roles/{roles}', 'RolesAPIController@update');
 Route::delete('admin/roles{roles}', 'RolesAPIController@destroy');
+
+
+
+

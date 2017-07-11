@@ -79,3 +79,7 @@ Route::patch('admin/contacts/{contacts}', ['as' => 'admin.contacts.update', 'use
 Route::delete('admin/contacts/{contacts}', ['as' => 'admin.contacts.destroy', 'uses' => 'ContactController@destroy']);
 Route::get('admin/contacts/{contacts}', ['as' => 'admin.contacts.show', 'uses' => 'ContactController@show']);
 Route::get('admin/contacts/{contacts}/edit', ['as' => 'admin.contacts.edit', 'uses' => 'ContactController@edit']);
+
+
+
+
