@@ -43,7 +43,7 @@
 
             <li class="m-top-xs">
               <i class="fa fa-external-link user-profile-icon"></i>
-              <a href="http://www.qsoftvietnam.com" target="_blank">www.qsoftvietnam.com</a>
+              <a href="http://www.itlsvn.com" target="_blank">www.itlsvn.com</a>
             </li>
           </ul>
 

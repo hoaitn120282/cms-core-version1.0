@@ -16,8 +16,8 @@ class ThemeTableSeeder extends Seeder
             [
                 'name'          => 'smallpine',
                 'version'       => '1.0',
-                'author'        => 'qsoftvietnam',
-                'author_url'    => 'http://qsoftvietnam.com',
+                'author'        => 'ITLSVN',
+                'author_url'    => 'http://itlsvn.com',
                 'description'   => 'Default Theme',
                 'image_preview' => 'Screenshot.png',
                 'status'        => true,

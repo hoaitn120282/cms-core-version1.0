@@ -15,7 +15,7 @@ class OptionsTableSeeder extends Seeder
         DB::table('options')->insert([
             [
                 'name'  => 'site_title',
-                'value' => 'QSoft Vietnam',
+                'value' => 'ITLSVN',
             ],
             [
                 'name'  => 'site_tagline',
@@ -23,7 +23,7 @@ class OptionsTableSeeder extends Seeder
             ],
             [
                 'name'  => 'email_administrator',
-                'value' => 'hoaitn@qsoft.com.vn',
+                'value' => 'henry.tran.lsvn@gmail.com',
             ],
             [
                 'name'  => 'frontpage_blog',

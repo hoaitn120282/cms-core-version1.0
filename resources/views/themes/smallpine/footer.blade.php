@@ -4,7 +4,7 @@
     <footer class="site-footer" role="contentinfo">
         <div class="logo-footer">
             @if(Theme::option('general','logo') != "")
-                <img src="{{Theme::option('general','logo')}}" alt="qsoftvietnam" width="300">
+                <img src="{{Theme::option('general','logo')}}" alt="ITLSVN" width="300">
             @else
                 {{ Helper::option("site_title") }}
             @endif

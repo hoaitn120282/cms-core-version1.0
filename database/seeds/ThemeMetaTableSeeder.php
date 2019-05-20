@@ -28,7 +28,7 @@ class ThemeMetaTableSeeder extends Seeder
                     [
                         'name'  => 'copyright',
                         'type'  => 'text',
-                        'value' => 'Copyright &copy; 2016 qsoftvietnam.com',
+                        'value' => 'Copyright &copy; 2016 ITLSVN',
                         'label' => 'Copyright Text',
                         'group' => 'general',
                     ],

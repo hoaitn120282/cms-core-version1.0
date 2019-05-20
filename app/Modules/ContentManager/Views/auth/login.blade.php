@@ -55,7 +55,7 @@
             </div>
             <div class="text-center">
                 All Right Reserved <br/>
-                Copyright &copy; 2016 QSoft Vietnam
+                Copyright &copy; 2016 ITLSVN
             </div>
         </div>
     </div>
