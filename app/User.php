@@ -32,9 +32,4 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Modules\ContentManager\Models\UserMeta','user_id');
     }
-
-    public function role()
-    {
-        return $this->hasOne(\App\Entities\Roles::class);
-    }
 }

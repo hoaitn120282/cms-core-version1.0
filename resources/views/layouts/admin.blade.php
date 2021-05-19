@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Administrator | ITLSVN</title>
+    <title>Administrator | CMS 1.0</title>
     <!-- Bootstrap -->
     <link href="{{ URL::to('/assets/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
     <!-- Font Awesome -->
@@ -78,8 +78,6 @@
                     </ul>
                   </li>
                   @endif
-                  {{--<li><a href="/admin/contentManager/filemanager"><i class="fa fa-image"></i> File Manager </a></li>--}}
-                  @include('layouts.generated-menu')
                   <li><a href="{{ Admin::route('contentManager.user.index') }}"><i class="fa fa-users"></i> Users Manager </a></li>
                   <li><a href="{{ Admin::route('contentManager.setting') }}"><i class="fa fa-gear"></i> Setting</a></li>
               </div>
@@ -215,7 +213,7 @@
         <!-- footer content -->
         <footer>
           <div class="pull-right">
-            Thank for using ITLSVN-CMS 1.0
+            Thank for using CMS 1.0
           </div>
           <div class="clearfix"></div>
         </footer>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Error!</title>
+        <title>Be right back.</title>
 
         <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
 
@@ -40,7 +40,7 @@
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">404 Not Found!&nbsp;<a href="javascript:history.back();">Back to home</a></div>
+                <div class="title">Halaman tidak ditemukan</div>
             </div>
         </div>
     </body>

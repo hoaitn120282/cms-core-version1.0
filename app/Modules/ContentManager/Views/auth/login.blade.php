@@ -7,7 +7,7 @@
             <div class="panel panel-login">
                 <div class="panel-heading">
                     <div class="logo">
-                        <i class="fa fa-anchor"></i>
+                        <i class="fa fa-paw"></i>
                     </div>
                     <h2>Login Administrator</h2>
                 </div>
@@ -42,7 +42,7 @@
                                 @endif
                             </div>
                         </div>
-
+                        
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4 text-right">
                                 <button type="submit" class="btn btn-success">
@@ -55,7 +55,7 @@
             </div>
             <div class="text-center">
                 All Right Reserved <br/>
-                Copyright &copy; 2016 ITLSVN
+                Copyright &copy; 2016 CMS 1.0
             </div>
         </div>
     </div>

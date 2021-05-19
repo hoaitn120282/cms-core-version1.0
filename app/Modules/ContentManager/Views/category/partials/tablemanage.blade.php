@@ -33,7 +33,7 @@
                         {{$data->name}}
                         <div class="btn-edit-delete">
                             <a href="{{ Admin::route('contentManager.category.edit',['post'=>$data->term_id]) }}" > Edit </a> | 
-                            <a href="#" data-role="delete-post" data-url="{{ Admin::route('contentManager.category.destroy',['category'=>'']) }}/" data-idpost="{{ $data->term_id }}" > Delete </a>
+                            <a href="#" data-role="delete-post" data-url="{{ Admin::route('contentManager.category.destroy',['category'=>'']) }}/" data-idpost="{{ $data->term_id }}" > Hapus </a>
                         </div>
                     </div>
                 </td> 

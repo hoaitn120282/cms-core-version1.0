@@ -9,8 +9,7 @@
 	@foreach($datas->get() as $node)
 	<li id="child-{{ $node->term_id }}" class="category-child-list">
 	    <ul id="parent-{{ $node->parent  }}" class="list-unstyled">
-	        {{--@include('ContentManager:menu.partials.categorymenu', ['datas' => $node->children(),'post'=>$post])--}}
-			@include('ContentManager::menu.partials.categorymenu', ['datas' => $node->children(),'post'=>false])
+	        @include('ContentManager:menu.partials.categorymenu', ['datas' => $node->children(),'post'=>$post])
 	    </ul>
 	</li>
 	@endforeach

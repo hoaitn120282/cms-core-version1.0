@@ -1,8 +1,7 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Migrations\Migration;
 
 class CreateTableComments extends Migration
 {
@@ -17,14 +16,13 @@ class CreateTableComments extends Migration
             $table->bigIncrements('id')->unsigned();
             $table->bigInteger('post_id')->default(0)->unsigned();
             $table->string('author');
-            $table->string('email');
+            $table->string('email')->unique();
             $table->string('url');
             $table->longText('content');
             $table->boolean('approved')->default(false);
             $table->bigInteger('parent')->default(0);
             $table->integer('user_id')->default(0)->unsigned();
-            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
-            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamps();
             $table->index('post_id');
             $table->foreign('post_id')->references('id')->on('posts')->onDelete('cascade');
         });

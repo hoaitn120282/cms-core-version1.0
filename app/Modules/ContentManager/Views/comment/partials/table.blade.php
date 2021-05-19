@@ -27,7 +27,7 @@
                         <a href="{{ Admin::route('contentManager.comment.approve',['comment'=>$data->id]) }}" > 
                             {{ ($data->approved) ? "Unapprove " : "Approve " }}
                         </a> | 
-                        <a href="#" data-role="delete-post" data-url="{{ Admin::route('contentManager.comment.destroy',['category'=>'']) }}/" data-idpost="{{ $data->id }}" > Delete </a>
+                        <a href="#" data-role="delete-post" data-url="{{ Admin::route('contentManager.comment.destroy',['category'=>'']) }}/" data-idpost="{{ $data->id }}" > Hapus </a>
                     </div>
                 </div>
             </td> 

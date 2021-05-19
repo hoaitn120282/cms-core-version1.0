@@ -33,7 +33,7 @@
                     {{$data->post_title}}
                     <div class="">
                         <a href="{{ Admin::route('contentManager.page.edit',['page'=>$data->id]) }}" > Edit </a> | 
-                        <a href="#" data-role="delete-post" data-idpost="{{ $data->id }}" > Delete </a>
+                        <a href="#" data-role="delete-post" data-idpost="{{ $data->id }}" > Hapus </a>
                     </div>
                 </div>
             </td> 

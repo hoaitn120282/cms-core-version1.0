@@ -4189,12 +4189,12 @@ ul.notifications {
   border-color: #ddd;
   border: 0;
   margin-top: 15%;
-  background-color: #605ca8;
+  background-color: #233242;
 }
 .panel-login > .panel-heading {
     color: #f7f7f7;
-    background-color: #00c0ef;
-    border-color: #00c0ef;
+    background-color: #26b99a;
+    border-color: #26b99a;
     text-align: center;
     position: relative;
     padding-top: 15px;
@@ -4209,7 +4209,7 @@ ul.notifications {
   width: 10%;
   border-radius: 50%;
   top: -50%;
-  background-color: #00c0ef;
+  background-color: #26b99a;
   position: absolute;
   height: 100%;
   font-size: 39px;
@@ -4446,19 +4446,4 @@ ul.notifications {
 .meta-publish-post{
   margin-top: 20px;
   padding: 20px;
-}
-
-/**
- * Form theme
- */
-form#install_theme {
-  max-width: 380px;
-  margin: 0 auto;
-}
-
-form#install_theme .form-group input,
-form#install_theme .form-group button {
-  display: inline-block;
-  height: 30px;
-  margin: 0px;
 }

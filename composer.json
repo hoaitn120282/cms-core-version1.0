@@ -1,5 +1,5 @@
 {
-    "name": "Base Core CMS",
+    "name": "CMS1.0",
     "description": "CMS with Laravel Framework.",
     "keywords": ["CMS", "laravel"],
     "license": "MIT",
@@ -8,15 +8,7 @@
         "php": ">=5.5.9",
         "laravel/framework": "5.2.*",
         "laravel/socialite": "^2.0",
-        "intervention/image": "2.3.*",
-        "infyomlabs/laravel-generator": "5.2.x-dev",
-        "laravelcollective/html": "5.2.*",
-        "infyomlabs/adminlte-templates": "5.2.x-dev",
-        "infyomlabs/swagger-generator": "dev-master",
-        "jlapp/swaggervel": "dev-master",
-        "doctrine/dbal": "~2.3",
-        "barryvdh/laravel-debugbar": "^2.3",
-        "infinety-es/filemanager": "2.1.1.7"
+        "intervention/image": "2.3.*"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

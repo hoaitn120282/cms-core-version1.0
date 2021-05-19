@@ -27,8 +27,8 @@ return [
     */
 	'name' => 'smallpine',
     'version' => '1.0.0',
-    'author' => 'ITLSVN',
-    'author_url' => 'https://www.facebook.com/hoainam.tran.355',
+    'author' => 'CMS 1.0',
+    'author_url' => 'http://your-domain.com',
     'description' => 'Default Theme',
     'image_preview' => 'preview.jpg',
 
@@ -37,7 +37,7 @@ return [
     * Set menu position on theme
     *
     */
-    'menu_position' => ['menu-top','menu-bottom','menu-left','menu-right'],
+    'menu_position' => ['menu-top','menu-bottom'],
 
     /*
     *
@@ -62,7 +62,7 @@ return [
             [
 				'name'=>'copyright',
                 'type'=>'text',
-                'value'=>'Copyright &copy; 2016 ITLSVN',
+                'value'=>'Copyright &copy; 2016 serayutheme.com',
                 'label'=>'Copyright Text',
             ],
             [
@@ -87,10 +87,10 @@ return [
                 'label'=>'Twitter',
 			],
 			[
-				'name'=>'google_plus',
+				'name'=>'instagram',
                 'type'=>'text',
                 'value'=>'',
-                'label'=>'Google Plus',
+                'label'=>'Instagram',
 			],
 			[
 				'name'=>'youtube',

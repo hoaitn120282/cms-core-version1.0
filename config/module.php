@@ -3,5 +3,5 @@ return  [
     'modules' => [
        'ContentManager'=>'contentManager.index',
     ],
-    'backend'=>'admin'
+    'backend'=>'administrator'
 ];

@@ -18,7 +18,7 @@ class MenuController extends Controller
 {
     public function index($name = "main-menu")
     {
-        $groupName = Options::where("name","menu_name")->first();
+        $groupName = Options::where("name","menu_name")->first(); 
         if (!in_array($name, unserialize($groupName->value))) {
             return abort(404);
         } 

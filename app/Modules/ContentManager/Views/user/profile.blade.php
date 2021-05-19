@@ -34,7 +34,7 @@
           <h3>{{ $model->name }}</h3>
 
           <ul class="list-unstyled user_data">
-            <li><i class="fa fa-map-marker user-profile-icon"></i> Nbr8 - No3 - Dich Vong - Cau Giay - Ha Noi
+            <li><i class="fa fa-map-marker user-profile-icon"></i> San Francisco, California, USA
             </li>
 
             <li>
@@ -43,7 +43,7 @@
 
             <li class="m-top-xs">
               <i class="fa fa-external-link user-profile-icon"></i>
-              <a href="http://www.itlsvn.com" target="_blank">www.itlsvn.com</a>
+              <a href="http://www.kimlabs.com/profile/" target="_blank">www.kimlabs.com</a>
             </li>
           </ul>
 
@@ -64,7 +64,9 @@
               </li>
               <li role="presentation"><a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Signin Log</a>
               </li>
-
+              
+              <li role="presentation" class=""><a href="#tab_content3" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">Profile</a>
+              </li>
             </ul>
             <div id="myTabContent" class="tab-content">
               <div role="tabpanel" class="tab-pane fade in" id="tab_content1" aria-labelledby="home-tab">
@@ -112,6 +114,11 @@
                   </tbody>
                 </table>
                 <!-- end user projects -->
+
+              </div>
+              <div role="tabpanel" class="tab-pane fade" id="tab_content3" aria-labelledby="profile-tab">
+                <p>xxFood truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui
+                  photo booth letterpress, commodo enim craft beer mlkshk </p>
               </div>
             </div>
           </div>

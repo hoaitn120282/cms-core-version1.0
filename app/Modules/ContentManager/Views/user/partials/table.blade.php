@@ -18,7 +18,7 @@
               {{$data->name}}
               <div class="">
                   <a href="{{ Admin::route('contentManager.user.edit',['user'=>$data->id]) }}" > Edit </a> | 
-                  <a href="#" data-role="delete-post" data-idpost="{{ $data->id }}" data-url="{{ Admin::route('contentManager.user.destroy',['tag'=>'']) }}/" > Delete </a>
+                  <a href="#" data-role="delete-post" data-idpost="{{ $data->id }}" data-url="{{ Admin::route('contentManager.user.destroy',['tag'=>'']) }}/" > Hapus </a>
               </div>
           </div>
       </td> 

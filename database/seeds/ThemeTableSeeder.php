@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 
 class ThemeTableSeeder extends Seeder
 {
@@ -13,15 +12,15 @@ class ThemeTableSeeder extends Seeder
     public function run()
     {
         DB::table('themes')->insert([
-            [
-                'name'          => 'smallpine',
-                'version'       => '1.0',
-                'author'        => 'ITLSVN',
-                'author_url'    => 'http://itlsvn.com',
-                'description'   => 'Default Theme',
-                'image_preview' => 'Screenshot.png',
-                'status'        => true,
-            ],
+        	[
+	            'name' => 'smallpine',
+	            'version' => '1.0',
+	            'author' => 'serayutheme',
+	            'author_url' => 'http://serayutheme.com',
+	            'description' => 'Default Theme',
+	            'image_preview' => 'Screenshot.png',
+                'status' => true,
+            ]            
         ]);
     }
 }

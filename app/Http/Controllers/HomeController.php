@@ -6,7 +6,6 @@ use App\Http\Requests;
 use Illuminate\Http\Request;
 use Theme;
 use App\Modules\ContentManager\Models\Articles;
-
 class HomeController extends Controller
 {
     /**
